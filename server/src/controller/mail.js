@@ -26,8 +26,6 @@ export const sendMails = async (req, res) => {
       },
     });
 
-    console.log(myEmail, googleAppPassword);
-
     await transport.sendMail({
       from: email,
       to: myEmail,
