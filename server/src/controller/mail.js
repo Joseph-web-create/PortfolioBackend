@@ -26,9 +26,9 @@ export const sendMails = async (req, res) => {
         user: myEmail,
         pass: googleAppPassword,
       },
-      // tls: {
-      //   rejectUnauthorized: false,
-      // },
+      tls: {
+        rejectUnauthorized: false,
+      },
     });
 
     await transport.verify();
