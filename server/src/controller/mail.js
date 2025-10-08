@@ -19,7 +19,6 @@ export const sendMails = async (req, res) => {
 
   try {
     const transport = nodemailer.createTransport({
-      service: "gmail",
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
@@ -29,15 +28,8 @@ export const sendMails = async (req, res) => {
       },
     });
 
-    try {
-      await transport.verify();
-      console.log("SMTP connection successful");
-    } catch (error) {
-      console.error("SMTP verify failed:", error);
-      return res
-        .status(500)
-        .json({ message: "Failed to connect to email service" });
-    }
+     await transport.verify();
+     console.log("✅ SMTP connection successful");
 
     await transport.sendMail({
       from: `Portfolio <${myEmail}>`,
