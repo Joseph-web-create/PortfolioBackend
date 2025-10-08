@@ -21,7 +21,7 @@ export const sendMails = async (req, res) => {
     const transport = nodemailer.createTransport({
       service: "gmail",
       host: "smtp.gmail.com",
-      port: 587,
+      port: 465,
       secure: true,
       auth: {
         user: myEmail,
@@ -40,7 +40,7 @@ export const sendMails = async (req, res) => {
     }
 
     await transport.sendMail({
-      from: `Portfolio Contact <${myEmail}>`,
+      from: `Portfolio <${myEmail}>`,
       to: myEmail,
       replyTo: email,
       subject: `New Contact Form Message from ${name}`,
