@@ -20,16 +20,19 @@ export const sendMails = async (req, res) => {
   try {
     const transport = nodemailer.createTransport({
       host: "smtp.gmail.com",
-      port: 467,
-      secure: true,
+      port: 465,
+      secure: false,
       auth: {
         user: myEmail,
         pass: googleAppPassword,
       },
+      // tls: {
+      //   rejectUnauthorized: false,
+      // },
     });
 
-     await transport.verify();
-     console.log("✅ SMTP connection successful");
+    await transport.verify();
+    console.log("✅ SMTP connection successful");
 
     await transport.sendMail({
       from: `Portfolio <${myEmail}>`,
