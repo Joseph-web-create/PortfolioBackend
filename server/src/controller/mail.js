@@ -20,14 +20,11 @@ export const sendMails = async (req, res) => {
   try {
     const transport = nodemailer.createTransport({
       service: "gmail",
-      port: 465,
+      port: 587,
       secure: false,
       auth: {
         user: myEmail,
         pass: googleAppPassword,
-      },
-      tls: {
-        rejectUnauthorized: false,
       },
     });
 
